@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Administração de Feedbacks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      margin: 2rem;
+    }
+    h1 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 2rem;
+    }
+    .feedback-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .page-feedback {
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 0;
+    }
+    .page-feedback:last-child {
+      border-bottom: none;
+    }
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1a3a7a;
+      margin-bottom: 0.5rem;
+    }
+    .feedback-item {
+      margin-left: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .star-rating {
+      color: #ffd700;
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+    .no-feedback {
+      font-style: italic;
+      color: #777;
+      margin-left: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Administração de Feedbacks Locais</h1>
+  <div class="feedback-container" id="feedbackContainer">
+    <!-- Feedbacks will be loaded here -->
+  </div>
+  <script>
+    // Pages for which feedback is stored
+    const pages = [
+      { key: 'index', name: 'Página Inicial' },
+      { key: 'assistencia-domiciliar', name: 'Assistência Domiciliar' },
+      { key: 'medicamentos', name: 'Medicamentos' },
+      { key: 'dicas-para-idoso', name: 'Dicas para o Idoso e Cuidador' },
+      { key: 'telefones-emergenciais', name: 'Telefones Emergenciais' }
+    ];
+
+    function renderStars(rating) {
+      let stars = '';
+      for (let i = 1; i <= 5; i++) {
+        stars += i <= rating ? '★' : '☆';
+      }
+      return stars;
+    }
+
+    function loadFeedbacks() {
+      const container = document.getElementById('feedbackContainer');
+      container.innerHTML = '';
+
+      pages.forEach(page => {
+        const feedbackKey = `feedback_${page.key}`;
+        const feedbackData = localStorage.getItem(feedbackKey);
+        const pageDiv = document.createElement('div');
+        pageDiv.className = 'page-feedback';
+
+        const title = document.createElement('div');
+        title.className = 'page-title';
+        title.textContent = page.name;
+        pageDiv.appendChild(title);
+
+        if (feedbackData) {
+          try {
+            const feedbackArray = JSON.parse(feedbackData);
+            if (Array.isArray(feedbackArray) && feedbackArray.length > 0) {
+              feedbackArray.forEach(feedback => {
+                const ratingDiv = document.createElement('div');
+                ratingDiv.className = 'feedback-item';
+                ratingDiv.innerHTML = `<span class="star-rating">${renderStars(feedback.rating)}</span> Avaliação por estrelas`;
+                pageDiv.appendChild(ratingDiv);
+
+                const textDiv = document.createElement('div');
+                textDiv.className = 'feedback-item';
+                textDiv.textContent = `Comentário: ${feedback.text || '(sem comentário)'}`;
+                pageDiv.appendChild(textDiv);
+              });
+            } else {
+              const noFeedbackDiv = document.createElement('div');
+              noFeedbackDiv.className = 'no-feedback';
+              noFeedbackDiv.textContent = 'Nenhum feedback armazenado.';
+              pageDiv.appendChild(noFeedbackDiv);
+            }
+          } catch (e) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'feedback-item';
+            errorDiv.textContent = 'Erro ao ler o feedback armazenado.';
+            pageDiv.appendChild(errorDiv);
+          }
+        } else {
+          const noFeedbackDiv = document.createElement('div');
+          noFeedbackDiv.className = 'no-feedback';
+          noFeedbackDiv.textContent = 'Nenhum feedback armazenado.';
+          pageDiv.appendChild(noFeedbackDiv);
+        }
+
+        container.appendChild(pageDiv);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadFeedbacks);
+  </script>
+</body>
+</html>

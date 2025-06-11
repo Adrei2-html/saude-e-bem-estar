@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assistência Domiciliar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dubai:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+  body {
+      font-family: 'Dubai', Arial, sans-serif;
+      background-color: #1e6a1e;
+      background-image: 
+        linear-gradient(to right, rgba(31, 77, 31, 0.7), rgba(62, 162, 62, 0.7)),
+        url('https://images.unsplash.com/photo-1588776814546-0a7a1a7a1a7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'),
+        url('https://cdn-icons-png.flaticon.com/512/2965/2965567.png');
+      background-size: cover, 150px 150px;
+      background-position: center, bottom right;
+      background-repeat: no-repeat, no-repeat;
+      background-attachment: fixed, scroll;
+      color: white;
+      min-height: 100vh;
+      padding-bottom: 2rem;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: rgba(31, 77, 31, 0.8);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+  .feedback-box {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 1rem;
+      max-width: 300px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      user-select: none;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+    .feedback-box.fade-out {
+      opacity: 0;
+    }
+    .home-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 1001;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.7));
+      transition: transform 0.2s ease-in-out;
+    }
+    .home-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .header h1 {
+      font-size: 4.5rem;
+      font-weight: 700;
+      padding: 25px 50px;
+      display: inline-block;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #1e6a1e, #3ea23e);
+      color: #e2ebfa;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      position: relative;
+      user-select: none;
+    }
+
+    .header h1 .audio-btn {
+      margin-left: 12px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #e2ebfa;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+      vertical-align: middle;
+    }
+
+    .assistencia-image {
+      position: absolute;
+      top: 50%;
+      right: 1%;
+      transform: translateY(-50%);
+      max-width: 320px;
+      height: auto;
+      opacity: 0.85;
+      user-select: none;
+      pointer-events: none;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 5px rgba(31, 77, 31, 0.7));
+      z-index: 10;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(-50%) translateX(0);
+      }
+      50% {
+        transform: translateY(-60%) translateX(10px);
+      }
+    }
+    /* Ensure container has relative positioning for absolute children */
+    .container {
+      position: relative;
+    }
+
+    .content {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      background-color: #2e8a2e;
+      padding: 30px;
+      border-radius: 12px;
+      width: 760px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      position: relative;
+    }
+
+    .box h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 700;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+      user-select: none;
+    }
+
+    .box h2 .audio-btn {
+      margin-left: 8px;
+      font-size: 1.4rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #1a3a7a;
+      text-shadow: 1px 1px 3px rgba(26, 58, 122, 0.7);
+      vertical-align: middle;
+    }
+
+    .box p {
+      font-size: 1.6rem;
+      line-height: 1.8;
+      font-weight: 500;
+      margin-bottom: 24px;
+      user-select: none;
+      color: white;
+      position: relative;
+    }
+
+    .box p .audio-btn {
+      margin-left: 6px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #333;
+      vertical-align: middle;
+    }
+
+    p {
+      font-weight: 600;
+    }
+  </style>
+  <style>
+    /* Responsive styles for mobile devices */
+    @media (max-width: 600px) {
+      body {
+        font-size: 14px;
+      }
+      .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1rem !important;
+        margin: 0 auto !important;
+      }
+      .content {
+        flex-direction: column !important;
+        gap: 1rem !important;
+      }
+      .box {
+        width: 100% !important;
+        padding: 1rem !important;
+        font-size: 1rem !important;
+      }
+      .header h1 {
+        font-size: 2rem !important;
+        padding: 1rem !important;
+      }
+      .assistencia-image {
+        max-width: 150px !important;
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        transform: none !important;
+        margin: 1rem auto !important;
+        display: block !important;
+      }
+      .feedback-box {
+        position: static !important;
+        max-width: 100% !important;
+        margin: 1rem 0 !important;
+        padding: 0.5rem !important;
+        font-size: 0.9rem !important;
+        border-radius: 8px !important;
+      }
+      .home-icon {
+        top: 1rem !important;
+        left: 1rem !important;
+        width: 30px !important;
+        height: 30px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>
+        ASSISTÊNCIA DOMICILIAR
+        <button aria-label="Ler título Assistência Domiciliar" class="audio-btn" data-text="ASSISTÊNCIA DOMICILIAR" type="button" title="Ouvir título">🔊</button>
+      </h1>
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/hospital-3.png" alt="Ícone Assistência Domiciliar" class="assistencia-image" />
+    </div>
+    <div class="content">
+      <div class="box">
+        <h2>
+          INFORMAÇÕES SOBRE ASSISTÊNCIA DOMICILIAR
+          <button aria-label="Ler título Informações sobre Assistência Domiciliar" class="audio-btn" data-text="INFORMAÇÕES SOBRE ASSISTÊNCIA DOMICILIAR" type="button" title="Ouvir título">🔊</button>
+        </h2>
+        <p>
+          Idosos acamados ou com dificuldades de locomoção podem receber atendimento médico e de enfermagem em casa. O pedido deve ser feito na UBS mais próxima, por um familiar ou cuidador.
+          <button aria-label="Ler texto Idosos acamados ou com dificuldades de locomoção podem receber atendimento médico e de enfermagem em casa. O pedido deve ser feito na UBS mais próxima, por um familiar ou cuidador." class="audio-btn" data-text="Idosos acamados ou com dificuldades de locomoção podem receber atendimento médico e de enfermagem em casa. O pedido deve ser feito na UBS mais próxima, por um familiar ou cuidador." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          A Atenção Domiciliar (AD) é um serviço de saúde prestado na casa do paciente, promovendo prevenção, tratamento e reabilitação, garantindo a continuidade do cuidado e integração com a Rede de Atenção à Saúde.
+          <button aria-label="Ler texto A Atenção Domiciliar (AD) é um serviço de saúde prestado na casa do paciente, promovendo prevenção, tratamento e reabilitação, garantindo a continuidade do cuidado e integração com a Rede de Atenção à Saúde." class="audio-btn" data-text="A Atenção Domiciliar (AD) é um serviço de saúde prestado na casa do paciente, promovendo prevenção, tratamento e reabilitação, garantindo a continuidade do cuidado e integração com a Rede de Atenção à Saúde." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          Disponível pelo SUS, é oferecida conforme a necessidade do paciente, com casos simples acompanhados por equipes de Saúde da Família e casos mais complexos atendidos por equipes especializadas do programa Melhor em Casa. A AD reduz hospitalizações, infecções e a superlotação dos serviços de urgência, além de otimizar recursos hospitalares. O acesso ao Serviço de Atenção Domiciliar (SAD) pode ocorrer via hospital, unidades de saúde básica ou UPAs.
+          <button aria-label="Ler texto Disponível pelo SUS, é oferecida conforme a necessidade do paciente, com casos simples acompanhados por equipes de Saúde da Família e casos mais complexos atendidos por equipes especializadas do programa Melhor em Casa. A AD reduz hospitalizações, infecções e a superlotação dos serviços de urgência, além de otimizar recursos hospitalares. O acesso ao Serviço de Atenção Domiciliar (SAD) pode ocorrer via hospital, unidades de saúde básica ou UPAs." class="audio-btn" data-text="Disponível pelo SUS, é oferecida conforme a necessidade do paciente, com casos simples acompanhados por equipes de Saúde da Família e casos mais complexos atendidos por equipes especializadas do programa Melhor em Casa. A AD reduz hospitalizações, infecções e a superlotação dos serviços de urgência, além de otimizar recursos hospitalares. O acesso ao Serviço de Atenção Domiciliar (SAD) pode ocorrer via hospital, unidades de saúde básica ou UPAs." type="button" title="Ouvir texto">🔊</button>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="feedback-box" aria-live="polite" role="region" style="position: fixed; bottom: 20px; left: 20px; background: rgba(0, 0, 0, 0.7); color: white; padding: 12px 20px; border-radius: 8px; font-size: 1rem; max-width: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; user-select: none; display: flex; align-items: center; gap: 8px;">
+    <span>🔊</span>
+    <span>Clique no ícone de áudio para ouvir a informação ou título.</span>
+  </div>
+  <script>
+    setTimeout(() => {
+      const feedbackBox = document.querySelector('.feedback-box');
+      if (feedbackBox) {
+        feedbackBox.classList.add('fade-out');
+        setTimeout(() => {
+          feedbackBox.style.display = 'none';
+        }, 1000);
+      }
+    }, 4000);
+  </script>
+  <a href="index.html" aria-label="Voltar para a página inicial" class="home-icon" title="Página Inicial">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Ícone Página Inicial" />
+  </a>
+  <section id="feedback-section" aria-label="Seção de feedback" style="max-width: 600px; margin: 2rem auto; padding: 1rem; border: 2px solid #2e7d32; border-radius: 12px; background-color: #f9f9f9;">
+    <h2 style="color: #2e7d32; margin-bottom: 1rem; display: flex; justify-content: center; align-items: center; gap: 0.3rem;">
+      Deixe sua avaliação
+      <button aria-label="Ler título Deixe sua avaliação" class="audio-btn" data-text="Deixe sua avaliação" type="button" title="Ouvir título" style="background: transparent; border: none; padding: 0; font-size: 1.8rem; line-height: 1; cursor: pointer; color: #2e7d32; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); vertical-align: middle;">
+        🔊
+      </button>
+    </h2>
+    <div id="star-rating" role="radiogroup" aria-label="Avaliação por estrelas" style="display: flex; justify-content: center; gap: 0.5rem; font-size: 2.5rem; cursor: pointer;">
+      <span class="star" role="radio" aria-checked="false" tabindex="0" aria-label="1 estrela">&#9734;</span>
+      <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="2 estrelas">&#9734;</span>
+      <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="3 estrelas">&#9734;</span>
+      <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="4 estrelas">&#9734;</span>
+      <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="5 estrelas">&#9734;</span>
+    </div>
+    <textarea id="feedback-text" placeholder="Escreva sua avaliação aqui..." rows="4" style="width: 100%; margin-top: 1rem; padding: 0.5rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; resize: vertical; box-sizing: border-box; overflow-y: auto;"></textarea>
+    <button id="submit-feedback" style="margin-top: 1rem; background-color: #2e7d32; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 1.1rem; cursor: pointer; display: block; width: 100%;">Enviar Avaliação</button>
+    <p id="feedback-message" style="text-align: center; margin-top: 1rem; color: #2e7d32; font-weight: bold;"></p>
+  </section>
+  <style>
+    #star-rating .star {
+      cursor: pointer;
+      user-select: none;
+      font-size: 2.5rem;
+      color: #ffd700;
+      line-height: 1;
+      user-select: none;
+    }
+  </style>
+  <script src="shared-feedback.js"></script>
+  <script>
+    // Speech synthesis for audio buttons
+    document.addEventListener('DOMContentLoaded', () => {
+      const audioButtons = document.querySelectorAll('.audio-btn');
+      audioButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const text = button.getAttribute('data-text');
+          if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'pt-BR';
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utterance);
+          } else {
+            alert('Seu navegador não suporta síntese de voz.');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

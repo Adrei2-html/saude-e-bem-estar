@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medicamentos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dubai:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Dubai', Arial, sans-serif;
+      background-image: 
+        linear-gradient(to right, rgba(63, 135, 245, 0.7), rgba(220, 225, 234, 0.7)),
+        url('https://vetformula.com.br/wp-content/uploads/2019/05/Seguro-usar-remedios-manipulados-vencidos_Vet-Formula_01-1700x956.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: black;
+      min-height: 100vh;
+      padding-bottom: 2rem;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: rgba(255, 255, 255, 0.4); /* Increased transparency */
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .header h1 {
+      font-size: 4.5rem;
+      font-weight: 700;
+      padding: 20px 40px;
+      display: inline-block;
+      border-radius: 12px;
+      background: #1a3a7a;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      position: relative;
+      user-select: none;
+      margin-right: 0;
+    }
+
+    .header h1 .audio-btn {
+      margin-left: 12px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #e2ebfa;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+      vertical-align: middle;
+    }
+
+    .med-image {
+      position: absolute;
+      top: 50%;
+      right: 8%;
+      transform: translateY(-50%);
+      width: 100px;
+      height: 100px;
+      opacity: 0.85;
+      user-select: none;
+      pointer-events: none;
+      animation: float 3s ease-in-out infinite;
+      filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.3));
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(-50%) translateX(0);
+      }
+      50% {
+        transform: translateY(-60%) translateX(10px);
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: nowrap;
+    }
+
+      .box {
+      background-color: #1a3a7a; /* Changed to match header box color */
+      padding: 30px;
+      border-radius: 12px;
+      width: 760px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      color: white; /* Changed text color to white */
+      font-weight: 600;
+      font-size: 1.1rem;
+      position: relative;
+    }
+
+      .armazenamento {
+      width: 760px;
+      height: auto;
+      /* Removed max-height and overflow-y to disable internal scrolling */
+    }
+
+      .distribuição {
+      width: 760px;
+      height: auto;
+      max-height: none;
+      overflow: visible;
+      padding-top: 12px;
+      padding-bottom: 0;
+      /* Removed max-height and overflow-y to disable internal scrolling */
+    }
+    .distribuição p:last-child {
+      margin-bottom: 0; /* Remove bottom margin from last paragraph to fit box height */
+    }
+
+      .box h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 700;
+      color: white; /* Changed title color to white */
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Adjusted shadow for contrast */
+      user-select: none;
+      width: 100%;
+    }
+
+    .box h2 .audio-btn {
+      margin-left: 8px;
+      font-size: 1.4rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #1a3a7a;
+      text-shadow: 1px 1px 3px rgba(26, 58, 122, 0.7);
+      vertical-align: middle;
+    }
+
+      .box p {
+      font-size: 1.6rem;
+      line-height: 1.8;
+      font-weight: 500; /* Changed to medium font weight (halfway between light and bold) */
+      margin-bottom: 24px; /* Increased spacing between topics */
+      user-select: none;
+      color: white; /* Changed paragraph text color to white */
+      position: relative;
+      width: 100%;
+    }
+
+    .box p .audio-btn {
+      margin-left: 6px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #333;
+      vertical-align: middle;
+    }
+
+    p {
+      font-weight: 600;
+    }
+  </style>
+  <style>
+    .home-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 1001;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.7));
+      transition: transform 0.2s ease-in-out;
+    }
+    .home-icon:hover {
+      transform: scale(1.1);
+    }
+  </style>
+  <style>
+    .home-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 1001;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.7));
+      transition: transform 0.2s ease-in-out;
+    }
+    .home-icon:hover {
+      transform: scale(1.1);
+    }
+  </style>
+  <style>
+    .home-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 1001;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.7));
+      transition: transform 0.2s ease-in-out;
+    }
+    .home-icon:hover {
+      transform: scale(1.1);
+    }
+  </style>
+  <style>
+    .home-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 1001;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.7));
+      transition: transform 0.2s ease-in-out;
+    }
+    .home-icon:hover {
+      transform: scale(1.1);
+    }
+  </style>
+  <style>
+    /* Responsive styles for mobile devices */
+    @media (max-width: 600px) {
+      body {
+        font-size: 14px;
+      }
+      .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1rem !important;
+        margin: 0 auto !important;
+      }
+      .content {
+        flex-direction: column !important;
+        gap: 1rem !important;
+      }
+      .box {
+        width: 100% !important;
+        padding: 1rem !important;
+        font-size: 1rem !important;
+      }
+      .header h1 {
+        font-size: 2rem !important;
+        padding: 1rem !important;
+      }
+      .med-image {
+        max-width: 150px !important;
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        transform: none !important;
+        margin: 1rem auto !important;
+        display: block !important;
+      }
+      .home-icon {
+        top: 1rem !important;
+        left: 1rem !important;
+        width: 30px !important;
+        height: 30px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>
+        MEDICAMENTOS
+        <button aria-label="Ler título Medicamentos" class="audio-btn" data-text="MEDICAMENTOS" type="button" title="Ouvir título">🔊</button>
+      </h1>
+      <img src="https://img.icons8.com/ios-filled/100/1a3a7a/pill.png" alt="Ícone Medicamento" class="med-image" />
+    </div>
+    <div class="content">
+      <div class="box acesso-sus" style="width: 760px;">
+        <h2>
+          ACESSO A MEDICAMENTOS NO SUS
+          <button aria-label="Ler título Acesso a medicamentos no SUS" class="audio-btn" data-text="ACESSO A MEDICAMENTOS NO SUS" type="button" title="Ouvir título">🔊</button>
+        </h2>
+        <p>
+          Para obter medicamentos no SUS, é necessário consulta médica, receita e verificação da disponibilidade na farmácia municipal, conforme a Rename. O objetivo é garantir acesso e uso racional dos medicamentos.
+          <button aria-label="Ler texto Para obter medicamentos no SUS, é necessário consulta médica, receita e verificação da disponibilidade na farmácia municipal, conforme a Rename. O objetivo é garantir acesso e uso racional dos medicamentos." class="audio-btn" data-text="Para obter medicamentos no SUS, é necessário consulta médica, receita e verificação da disponibilidade na farmácia municipal, conforme a Rename. O objetivo é garantir acesso e uso racional dos medicamentos." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          A Assistência Farmacêutica é dividida em três componentes:
+          <button aria-label="Ler texto A Assistência Farmacêutica é dividida em três componentes:" class="audio-btn" data-text="A Assistência Farmacêutica é dividida em três componentes:" type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">1.</span> Componente Básico: Fornece medicamentos essenciais para a Atenção Básica, sob responsabilidade dos municípios.
+          <button aria-label="Ler texto Componente Básico: Fornece medicamentos essenciais para a Atenção Básica, sob responsabilidade dos municípios." class="audio-btn" data-text="Componente Básico: Fornece medicamentos essenciais para a Atenção Básica, sob responsabilidade dos municípios." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">2.</span> Componente Estratégico: Abrange medicamentos para doenças específicas dos programas do Ministério da Saúde, com gestão compartilhada entre municípios e estados.
+          <button aria-label="Ler texto Componente Estratégico: Abrange medicamentos para doenças específicas dos programas do Ministério da Saúde, com gestão compartilhada entre municípios e estados." class="audio-btn" data-text="Componente Estratégico: Abrange medicamentos para doenças específicas dos programas do Ministério da Saúde, com gestão compartilhada entre municípios e estados." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">3.</span> Componente Especializado: Garante acesso a medicamentos de alto custo conforme protocolos do Ministério da Saúde, sendo de responsabilidade dos estados.
+          <button aria-label="Ler texto Componente Especializado: Garante acesso a medicamentos de alto custo conforme protocolos do Ministério da Saúde, sendo de responsabilidade dos estados." class="audio-btn" data-text="Componente Especializado: Garante acesso a medicamentos de alto custo conforme protocolos do Ministério da Saúde, sendo de responsabilidade dos estados." type="button" title="Ouvir texto">🔊</button>
+        </p>
+      </div>
+      <div class="box armazenamento">
+        <h2>
+          ORIENTAÇÕES QUANTO AO USO E ARMAZENAMENTO DE MEDICAMENTOS
+          <button aria-label="Ler título Orientações quanto ao uso e armazenamento de medicamentos" class="audio-btn" data-text="ORIENTAÇÕES QUANTO AO USO E ARMAZENAMENTO DE MEDICAMENTOS" type="button" title="Ouvir título">🔊</button>
+        </h2>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Guarde os medicamentos em local seco, fresco, seguro e fora do alcance de crianças e animais.
+          <button aria-label="Ler texto Guarde os medicamentos em local seco, fresco, seguro e fora do alcance de crianças e animais." class="audio-btn" data-text="Guarde os medicamentos em local seco, fresco, seguro e fora do alcance de crianças e animais." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Evite misturar com alimentos, produtos de limpeza ou perfumaria.
+          <button aria-label="Ler texto Evite misturar com alimentos, produtos de limpeza ou perfumaria." class="audio-btn" data-text="Evite misturar com alimentos, produtos de limpeza ou perfumaria." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Armazene medicamentos na geladeira apenas quando indicado, longe da porta e do congelador.
+          <button aria-label="Ler texto Armazene medicamentos na geladeira apenas quando indicado, longe da porta e do congelador." class="audio-btn" data-text="Armazene medicamentos na geladeira apenas quando indicado, longe da porta e do congelador." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Porta-comprimidos apenas para a dose diária, mantendo-o limpo.
+          <button aria-label="Ler texto porta-comprimidos apenas para a dose diária, mantendo-o limpo." class="audio-btn" data-text="porta-comprimidos apenas para a dose diária, mantendo-o limpo." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Separe os medicamentos por pessoa para evitar trocas.
+          <button aria-label="Ler texto Separe os medicamentos por pessoa para evitar trocas." class="audio-btn" data-text="Separe os medicamentos por pessoa para evitar trocas." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Lave as mãos e manuseie os medicamentos em local claro.
+          <button aria-label="Ler texto Lave as mãos e manuseie os medicamentos em local claro." class="audio-btn" data-text="Lave as mãos e manuseie os medicamentos em local claro." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Siga os horários e orientações prescritas para o uso correto.
+          <button aria-label="Ler texto Siga os horários e orientações prescritas para o uso correto." class="audio-btn" data-text="Siga os horários e orientações prescritas para o uso correto." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Tome comprimidos com água e consulte um profissional antes de partir ou triturar.
+          <button aria-label="Ler texto Tome comprimidos com água e consulte um profissional antes de partir ou triturar." class="audio-btn" data-text="Tome comprimidos com água e consulte um profissional antes de partir ou triturar." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Abra um frasco por vez e mantenha as embalagens originais.
+          <button aria-label="Ler texto Abra um frasco por vez e mantenha as embalagens originais." class="audio-btn" data-text="Abra um frasco por vez e mantenha as embalagens originais." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Verifique sempre a validade e o aspecto do medicamento.
+          <button aria-label="Ler texto Verifique sempre a validade e o aspecto do medicamento." class="audio-btn" data-text="Verifique sempre a validade e o aspecto do medicamento." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Use o medidor original e evite colheres caseiras.
+          <button aria-label="Ler texto Use o medidor original e evite colheres caseiras." class="audio-btn" data-text="Use o medidor original e evite colheres caseiras." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Evite contato do bico de pomadas e colírios com a pele ou olhos.
+          <button aria-label="Ler texto Evite contato do bico de pomadas e colírios com a pele ou olhos." class="audio-btn" data-text="Evite contato do bico de pomadas e colírios com a pele ou olhos." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Leve receitas e medicamentos às consultas e informe sobre plantas medicinais.
+          <button aria-label="Ler texto Leve receitas e medicamentos às consultas e informe sobre plantas medicinais." class="audio-btn" data-text="Leve receitas e medicamentos às consultas e informe sobre plantas medicinais." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Guarde a receita junto dos medicamentos e renove antes que acabem.
+          <button aria-label="Ler texto Guarde a receita junto dos medicamentos e renove antes que acabem." class="audio-btn" data-text="Guarde a receita junto dos medicamentos e renove antes que acabem." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Separe os medicamentos em uso dos suspensos ou antigos.
+          <button aria-label="Ler texto Separe os medicamentos em uso dos suspensos ou antigos." class="audio-btn" data-text="Separe os medicamentos em uso dos suspensos ou antigos." type="button" title="Ouvir texto">🔊</button>
+        </p>
+      </div>
+      <div class="box distribuição">
+        <h2>
+          DISTRIBUIÇÃO DE MEDICAMENTOS
+          <button aria-label="Ler título Distribuição de medicamentos" class="audio-btn" data-text="DISTRIBUIÇÃO DE MEDICAMENTOS" type="button" title="Ouvir título">🔊</button>
+        </h2>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Farmácia Popular: oferece remédios gratuitos para hipertensão, diabetes e asma.
+          <button aria-label="Ler texto Farmácia Popular: oferece remédios gratuitos para hipertensão, diabetes e asma." class="audio-btn" data-text="Farmácia Popular: oferece remédios gratuitos para hipertensão, diabetes e asma." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Unidades de Saúde do SUS: fornecem remédios para doenças crônicas.
+          <button aria-label="Ler texto Unidades de Saúde do SUS: fornecem remédios para doenças crônicas." class="audio-btn" data-text="Unidades de Saúde do SUS: fornecem remédios para doenças crônicas." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <p>
+          <span style="margin-right: 8px; color: white; font-weight: bold;">●</span>Para retirar medicamentos, o idoso precisa de receita médica, RG e Cartão SUS.
+          <button aria-label="Ler texto Para retirar medicamentos, o idoso precisa de receita médica, RG e Cartão SUS." class="audio-btn" data-text="Para retirar medicamentos, o idoso precisa de receita médica, RG e Cartão SUS." type="button" title="Ouvir título">🔊</button>
+        </p>
+      </div>
+    </div>
+    <section id="feedback-section" aria-label="Seção de feedback" style="max-width: 600px; margin: 2rem auto; padding: 1rem; border: 2px solid #003366; border-radius: 12px; background-color: #e8f5e9;">
+      <h2 style="color: #003366; margin-bottom: 1rem; display: flex; justify-content: center; align-items: center; gap: 0.3rem;">
+        Deixe sua avaliação
+        <button aria-label="Ler título Deixe sua avaliação" class="audio-btn" data-text="Deixe sua avaliação" type="button" title="Ouvir título" style="background: transparent; border: none; padding: 0; font-size: 1.8rem; line-height: 1; cursor: pointer; color: #003366; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); vertical-align: middle;">
+          🔊
+        </button>
+      </h2>
+      <div id="star-rating" role="radiogroup" aria-label="Avaliação por estrelas" style="display: flex; justify-content: center; gap: 0.5rem; font-size: 2.5rem; cursor: pointer;">
+        <span class="star" role="radio" aria-checked="false" tabindex="0" aria-label="1 estrela">&#9734;</span>
+        <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="2 estrelas">&#9734;</span>
+        <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="3 estrelas">&#9734;</span>
+        <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="4 estrelas">&#9734;</span>
+        <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="5 estrelas">&#9734;</span>
+      </div>
+      <textarea id="feedback-text" placeholder="Escreva sua avaliação aqui..." rows="4" style="width: 100%; margin-top: 1rem; padding: 0.5rem; font-size: 1rem; border-radius: 8px; border: 1px solid #a5d6a7; resize: vertical; box-sizing: border-box; overflow-y: auto; background-color: #e8f5e9; color: #003366;"></textarea>
+      <button id="submit-feedback" style="margin-top: 1rem; background-color: #003366; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 1.1rem; cursor: pointer; display: block; width: 100%;">Enviar Avaliação</button>
+      <p id="feedback-message" style="text-align: center; margin-top: 1rem; color: #003366; font-weight: bold;"></p>
+    </section>
+  </div>
+  <style>
+    #star-rating .star {
+      cursor: pointer;
+      user-select: none;
+      font-size: 2.5rem;
+      color: #ffd700;
+      line-height: 1;
+      user-select: none;
+    }
+    .feedback-box {
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+    .feedback-box.fade-out {
+      opacity: 0;
+    }
+  </style>
+  <script src="shared-feedback.js"></script>
+  <script>
+    // Speech synthesis for audio buttons
+    document.addEventListener('DOMContentLoaded', () => {
+      const audioButtons = document.querySelectorAll('.audio-btn');
+      audioButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const text = button.getAttribute('data-text');
+          if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'pt-BR';
+            window.speechSynthesis.cancel(); // Cancel any ongoing speech
+            window.speechSynthesis.speak(utterance);
+          } else {
+            alert('Seu navegador não suporta síntese de voz.');
+          }
+        });
+      });
+    });
+  </script>
+  <div class="feedback-box" aria-live="polite" role="region" style="position: fixed; bottom: 20px; left: 20px; background: rgba(0, 0, 0, 0.7); color: white; padding: 12px 20px; border-radius: 8px; font-size: 1rem; max-width: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; user-select: none; display: flex; align-items: center; gap: 8px;">
+    <span>🔊</span>
+    <span>Clique no ícone de áudio para ouvir a informação ou título.</span>
+  </div>
+  <script>
+    setTimeout(() => {
+      const feedbackBox = document.querySelector('.feedback-box');
+      if (feedbackBox) {
+        feedbackBox.classList.add('fade-out');
+        setTimeout(() => {
+          feedbackBox.style.display = 'none';
+        }, 1000);
+      }
+    }, 4000);
+  </script>
+  <a href="index.html" aria-label="Voltar para a página inicial" class="home-icon" title="Página Inicial">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Ícone Página Inicial" />
+  </a>
+</body>
+</html>

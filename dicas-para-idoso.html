@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DICAS PARA O IDOSO E CUIDADOR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dubai:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  body {
+      font-family: 'Dubai', Arial, sans-serif;
+      /* Updated background with a generic, elegant image that matches the page theme */
+      background-image: 
+        linear-gradient(to right, rgba(34, 85, 34, 0.7), rgba(70, 180, 70, 0.7)),
+        url('https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=1280&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+      min-height: 100vh;
+      padding-bottom: 2rem;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      /* Updated container background to a more modern green gradient */
+      background: linear-gradient(135deg, #2e7d32, #4caf50);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    .feedback-box {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 1rem;
+      max-width: 300px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      user-select: none;
+    }
+    .home-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 1001;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.7));
+      transition: transform 0.2s ease-in-out;
+    }
+    .home-icon:hover {
+      transform: scale(1.1);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .header h1 {
+      font-size: 4.5rem;
+      font-weight: 700;
+      padding: 20px 40px;
+      display: inline-block;
+      border-radius: 12px;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      position: relative;
+      user-select: none;
+      margin-top: 0;
+      margin-bottom: 20px;
+      background: rgb(31, 77, 31, 0.7);
+      padding: 20px 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .header h1 .audio-btn {
+      margin-left: 12px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #e2ebfa;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+      vertical-align: middle;
+    }
+    .dicas-image {
+      display: none;
+    }
+    .dicas-animated-icon {
+      width: 100px;
+      height: 100px;
+      user-select: none;
+      pointer-events: none;
+      position: absolute;
+      left: 85%;
+      margin-left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: float 3s ease-in-out infinite;
+      filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.3));
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(-50%) translateY(0);
+      }
+      50% {
+        transform: translateY(-50%) translateY(-15px);
+      }
+    }
+    .content {
+      font-weight: 600;
+      font-size: 1.6rem;
+      line-height: 1.8;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 0;
+      background: transparent;
+    }
+    .box {
+      background-color: rgba(31, 77, 31, 0.7);
+      padding: 30px;
+      border-radius: 12px;
+      width: 760px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      color: white;
+      font-weight: 600;
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+    }
+    .section {
+      margin-bottom: 0;
+    }
+    .section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+      user-select: none;
+    }
+    .section h2 .audio-btn {
+      margin-left: 8px;
+      font-size: 1.4rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #1a3a7a;
+      text-shadow: 1px 1px 3px rgba(26, 58, 122, 0.7);
+      vertical-align: middle;
+    }
+    ul {
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    li {
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    .audio-btn {
+      margin-left: 6px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #333;
+      vertical-align: middle;
+      box-shadow: none;
+      padding: 0;
+    }
+  </style>
+  <style>
+    .home-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 1001;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.7));
+      transition: transform 0.2s ease-in-out;
+    }
+    .home-icon:hover {
+      transform: scale(1.1);
+    }
+  </style>
+  <style>
+    /* Responsive styles for mobile devices */
+    @media (max-width: 600px) {
+      body {
+        font-size: 14px;
+      }
+      .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1rem !important;
+        margin: 0 auto !important;
+      }
+      .content {
+        flex-direction: column !important;
+        gap: 1rem !important;
+      }
+      .box {
+        width: 100% !important;
+        padding: 1rem !important;
+        font-size: 1rem !important;
+      }
+      .header h1 {
+        font-size: 2rem !important;
+        padding: 1rem !important;
+      }
+      .dicas-animated-icon {
+        max-width: 150px !important;
+        position: relative !important;
+        left: auto !important;
+        margin: 1rem auto !important;
+        display: block !important;
+        transform: none !important;
+      }
+      .home-icon {
+        top: 1rem !important;
+        left: 1rem !important;
+        width: 30px !important;
+        height: 30px !important;
+      }
+      .feedback-box {
+        position: static !important;
+        max-width: 100% !important;
+        margin: 1rem 0 !important;
+        padding: 0.5rem !important;
+        font-size: 0.9rem !important;
+        border-radius: 8px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header" style="position: relative; display: flex; justify-content: center; align-items: center;">
+      <h1 style="position: relative; margin: 0;">
+        DICAS PARA O IDOSO E CUIDADOR
+        <button aria-label="Ler título Dicas para o Idoso e Cuidador" class="audio-btn" data-text="DICAS PARA O IDOSO E CUIDADOR" type="button" title="Ouvir título" style="margin-left: 12px; font-size: 1.8rem; cursor: pointer; background: transparent; border: none; color: #e2ebfa; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); vertical-align: middle;">🔊</button>
+      </h1>
+      <img src="https://img.icons8.com/ios-filled/100/ffffff/hand-holding-heart.png" alt="Ícone Dicas para o Idoso e Cuidador" class="dicas-animated-icon" />
+    </div>
+    <div class="content">
+      <div class="section box">
+        <h2>
+          1. Dicas de saúde
+          <button aria-label="Ler título Dicas de saúde" class="audio-btn" data-text="Dicas de saúde" type="button" title="Ouvir título">🔊</button>
+        </h2>
+        <h3>Manter a saúde física e mental
+          <button aria-label="Ler título Manter a saúde física e mental" class="audio-btn" data-text="Manter a saúde física e mental" type="button" title="Ouvir título">🔊</button>
+        </h3>
+        <p>
+          Faça exercícios físicos regularmente, priorize o sono e a alimentação saudável. Além disso, mantenha consultas médicas regulares para monitorar sua saúde.
+          <button aria-label="Ler texto Faça exercícios físicos regularmente, priorize o sono e a alimentação saudável. Além disso, mantenha consultas médicas regulares para monitorar sua saúde." class="audio-btn" data-text="Faça exercícios físicos regularmente, priorize o sono e a alimentação saudável. Além disso, mantenha consultas médicas regulares para monitorar sua saúde." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <ul>
+          <li>Priorize o sono e a alimentação saudável.
+            <button aria-label="Ler texto Priorize o sono e a alimentação saudável." class="audio-btn" data-text="Priorize o sono e a alimentação saudável." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Aprenda técnicas de relaxamento e gerenciamento de estresse.
+            <button aria-label="Ler texto Aprenda técnicas de relaxamento e gerenciamento de estresse." class="audio-btn" data-text="Aprenda técnicas de relaxamento e gerenciamento de estresse." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Busque apoio de amigos, familiares ou profissionais de saúde.
+            <button aria-label="Ler texto Busque apoio de amigos, familiares ou profissionais de saúde." class="audio-btn" data-text="Busque apoio de amigos, familiares ou profissionais de saúde." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Gerenciar doenças crônicas:
+            <button aria-label="Ler texto Gerenciar doenças crônicas." class="audio-btn" data-text="Gerenciar doenças crônicas." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Aprenda sobre a doença e seus sintomas.
+            <button aria-label="Ler texto Aprenda sobre a doença e seus sintomas." class="audio-btn" data-text="Aprenda sobre a doença e seus sintomas." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Siga o plano de tratamento recomendado pelo médico.
+            <button aria-label="Ler texto Siga o plano de tratamento recomendado pelo médico." class="audio-btn" data-text="Siga o plano de tratamento recomendado pelo médico." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Faça exames regulares para monitorar a doença.
+            <button aria-label="Ler texto Faça exames regulares para monitorar a doença." class="audio-btn" data-text="Faça exames regulares para monitorar a doença." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Busque apoio de profissionais de saúde ou grupos de apoio.
+            <button aria-label="Ler texto Busque apoio de profissionais de saúde ou grupos de apoio." class="audio-btn" data-text="Busque apoio de profissionais de saúde ou grupos de apoio." type="button" title="Ouvir texto">🔊</button>
+          </li>
+        </ul>
+      </div>
+      <div class="section box">
+        <h2>
+          2. Atividades e exercícios
+          <button aria-label="Ler título Atividades e exercícios" class="audio-btn" data-text="Atividades e exercícios" type="button" title="Ouvir título">🔊</button>
+        </h2>
+        <h3>Exercícios físicos para idosos
+          <button aria-label="Ler título Exercícios físicos para idosos" class="audio-btn" data-text="Exercícios físicos para idosos" type="button" title="Ouvir título">🔊</button>
+        </h3>
+        <p>
+          Encontre exercícios físicos que sejam seguros e benéficos para você e faça-os regularmente.
+          <button aria-label="Ler texto Encontre exercícios físicos que sejam seguros e benéficos para você e faça-os regularmente." class="audio-btn" data-text="Encontre exercícios físicos que sejam seguros e benéficos para você e faça-os regularmente." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <ul>
+          <li>Encontre exercícios físicos que sejam seguros e benéficos para você.
+            <button aria-label="Ler texto Encontre exercícios físicos que sejam seguros e benéficos para você." class="audio-btn" data-text="Encontre exercícios físicos que sejam seguros e benéficos para você." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Faça exercícios regularmente para manter a mobilidade e a força.
+            <button aria-label="Ler texto Faça exercícios regularmente para manter a mobilidade e a força." class="audio-btn" data-text="Faça exercícios regularmente para manter a mobilidade e a força." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Busque apoio de profissionais de saúde ou treinadores físicos.
+            <button aria-label="Ler texto Busque apoio de profissionais de saúde ou treinadores físicos." class="audio-btn" data-text="Busque apoio de profissionais de saúde ou treinadores físicos." type="button" title="Ouvir texto">🔊</button>
+          </li>
+        </ul>
+        <h3>Atividades cognitivas e mentais
+          <button aria-label="Ler título Atividades cognitivas e mentais" class="audio-btn" data-text="Atividades cognitivas e mentais" type="button" title="Ouvir título">🔊</button>
+        </h3>
+        <p>
+          Encontre atividades que estimulem a mente, como leitura ou puzzles, e aprenda novas habilidades.
+          <button aria-label="Ler texto Encontre atividades que estimulem a mente, como leitura ou puzzles, e aprenda novas habilidades." class="audio-btn" data-text="Encontre atividades que estimulem a mente, como leitura ou puzzles, e aprenda novas habilidades." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <ul>
+          <li>Encontre atividades que estimulem a mente, como leitura ou puzzles.
+            <button aria-label="Ler texto Encontre atividades que estimulem a mente, como leitura ou puzzles." class="audio-btn" data-text="Encontre atividades que estimulem a mente, como leitura ou puzzles." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Aprenda novas habilidades ou hobbies.
+            <button aria-label="Ler texto Aprenda novas habilidades ou hobbies." class="audio-btn" data-text="Aprenda novas habilidades ou hobbies." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Busque apoio de profissionais de saúde ou grupos de apoio.
+            <button aria-label="Ler texto Busque apoio de profissionais de saúde ou grupos de apoio." class="audio-btn" data-text="Busque apoio de profissionais de saúde ou grupos de apoio." type="button" title="Ouvir texto">🔊</button>
+          </li>
+        </ul>
+        <h3>Manter a independência e a autonomia
+          <button aria-label="Ler título Manter a independência e a autonomia" class="audio-btn" data-text="Manter a independência e a autonomia" type="button" title="Ouvir título">🔊</button>
+        </h3>
+        <p>
+          Aprenda a fazer coisas por si mesmo e use equipamentos de apoio se necessário.
+          <button aria-label="Ler texto Aprenda a fazer coisas por si mesmo e use equipamentos de apoio se necessário." class="audio-btn" data-text="Aprenda a fazer coisas por si mesmo e use equipamentos de apoio se necessário." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <ul>
+          <li>Aprenda a fazer coisas por si mesmo.
+            <button aria-label="Ler texto Aprenda a fazer coisas por si mesmo." class="audio-btn" data-text="Aprenda a fazer coisas por si mesmo." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Use equipamentos de apoio, como andadores ou cadeiras de rodas, se necessário.
+            <button aria-label="Ler texto Use equipamentos de apoio, como andadores ou cadeiras de rodas, se necessário." class="audio-btn" data-text="Use equipamentos de apoio, como andadores ou cadeiras de rodas, se necessário." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Busque apoio de amigos, familiares ou profissionais de saúde.
+            <button aria-label="Ler texto Busque apoio de amigos, familiares ou profissionais de saúde." class="audio-btn" data-text="Busque apoio de amigos, familiares ou profissionais de saúde." type="button" title="Ouvir texto">🔊</button>
+          </li>
+        </ul>
+      </div>
+      <div class="section box">
+        <h2>
+          3. Segurança e prevenção
+          <button aria-label="Ler título Segurança e prevenção" class="audio-btn" data-text="Segurança e prevenção" type="button" title="Ouvir título">🔊</button>
+        </h2>
+        <h3>Prevenir quedas e lesões
+          <button aria-label="Ler título Prevenir quedas e lesões" class="audio-btn" data-text="Prevenir quedas e lesões" type="button" title="Ouvir título">🔊</button>
+        </h3>
+        <p>
+          Remova obstáculos e perigos do ambiente, use equipamentos de apoio e faça exercícios para equilíbrio.
+          <button aria-label="Ler texto Remova obstáculos e perigos do ambiente, use equipamentos de apoio e faça exercícios para equilíbrio." class="audio-btn" data-text="Remova obstáculos e perigos do ambiente, use equipamentos de apoio e faça exercícios para equilíbrio." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <h3>Proteger-se contra a violência e o abuso
+          <button aria-label="Ler título Proteger-se contra a violência e o abuso" class="audio-btn" data-text="Proteger-se contra a violência e o abuso" type="button" title="Ouvir título">🔊</button>
+        </h3>
+        <p>
+          Aprenda a reconhecer sinais de violência e abuso, e busque apoio de amigos e profissionais.
+          <button aria-label="Ler texto Aprenda a reconhecer sinais de violência e abuso, e busque apoio de amigos e profissionais." class="audio-btn" data-text="Aprenda a reconhecer sinais de violência e abuso, e busque apoio de amigos e profissionais." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <ul>
+          <li>Aprenda a reconhecer os sinais de violência e abuso.
+            <button aria-label="Ler texto Aprenda a reconhecer os sinais de violência e abuso." class="audio-btn" data-text="Aprenda a reconhecer os sinais de violência e abuso." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Busque apoio de amigos, familiares ou profissionais de saúde.
+            <button aria-label="Ler texto Busque apoio de amigos, familiares ou profissionais de saúde." class="audio-btn" data-text="Busque apoio de amigos, familiares ou profissionais de saúde." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Aprenda a se comunicar de forma eficaz e assertiva.
+            <button aria-label="Ler texto Aprenda a se comunicar de forma eficaz e assertiva." class="audio-btn" data-text="Aprenda a se comunicar de forma eficaz e assertiva." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Busque apoio de organizações que defendem os direitos dos idosos.
+            <button aria-label="Ler texto Busque apoio de organizações que defendem os direitos dos idosos." class="audio-btn" data-text="Busque apoio de organizações que defendem os direitos dos idosos." type="button" title="Ouvir texto">🔊</button>
+          </li>
+        </ul>
+        <h3>Manter a segurança em casa
+          <button aria-label="Ler título Manter a segurança em casa" class="audio-btn" data-text="Manter a segurança em casa" type="button" title="Ouvir título">🔊</button>
+        </h3>
+        <p>
+          Verifique a segurança da casa, use alarmes e câmeras, e aprenda a usar tecnologias de segurança.
+          <button aria-label="Ler texto Verifique a segurança da casa, use alarmes e câmeras, e aprenda a usar tecnologias de segurança." class="audio-btn" data-text="Verifique a segurança da casa, use alarmes e câmeras, e aprenda a usar tecnologias de segurança." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <ul>
+          <li>Verifique a segurança da casa e faça ajustes necessários.
+            <button aria-label="Ler texto Verifique a segurança da casa e faça ajustes necessários." class="audio-btn" data-text="Verifique a segurança da casa e faça ajustes necessários." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Use equipamentos de segurança, como alarmes e câmeras.
+            <button aria-label="Ler texto Use equipamentos de segurança, como alarmes e câmeras." class="audio-btn" data-text="Use equipamentos de segurança, como alarmes e câmeras." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Aprenda a usar tecnologias de segurança.
+            <button aria-label="Ler texto Aprenda a usar tecnologias de segurança." class="audio-btn" data-text="Aprenda a usar tecnologias de segurança." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Busque apoio de profissionais de saúde ou especialistas em segurança.
+            <button aria-label="Ler texto Busque apoio de profissionais de saúde ou especialistas em segurança." class="audio-btn" data-text="Busque apoio de profissionais de saúde ou especialistas em segurança." type="button" title="Ouvir texto">🔊</button>
+          </li>
+        </ul>
+      </div>
+      <div class="section box">
+        <h2>
+          4. Lazer e socialização
+          <button aria-label="Ler título Lazer e socialização" class="audio-btn" data-text="Lazer e socialização" type="button" title="Ouvir título">🔊</button>
+        </h2>
+        <h3>Atividades de lazer e entretenimento
+          <button aria-label="Ler título Atividades de lazer e entretenimento" class="audio-btn" data-text="Atividades de lazer e entretenimento" type="button" title="Ouvir título">🔊</button>
+        </h3>
+        <p>
+          Encontre atividades que você gosta, participe de grupos e aprenda novas habilidades.
+          <button aria-label="Ler texto Encontre atividades que você gosta, participe de grupos e aprenda novas habilidades." class="audio-btn" data-text="Encontre atividades que você gosta, participe de grupos e aprenda novas habilidades." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <ul>
+          <li>Encontre atividades que você gosta e que o fazem feliz.
+            <button aria-label="Ler texto Encontre atividades que você gosta e que o fazem feliz." class="audio-btn" data-text="Encontre atividades que você gosta e que o fazem feliz." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Participe de grupos ou clubes que compartilham seus interesses.
+            <button aria-label="Ler texto Participe de grupos ou clubes que compartilham seus interesses." class="audio-btn" data-text="Participe de grupos ou clubes que compartilham seus interesses." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Aprenda novas habilidades ou hobbies.
+            <button aria-label="Ler texto Aprenda novas habilidades ou hobbies." class="audio-btn" data-text="Aprenda novas habilidades ou hobbies." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Busque apoio de amigos, familiares ou profissionais de saúde.
+            <button aria-label="Ler texto Busque apoio de amigos, familiares ou profissionais de saúde." class="audio-btn" data-text="Busque apoio de amigos, familiares ou profissionais de saúde." type="button" title="Ouvir texto">🔊</button>
+          </li>
+        </ul>
+        <h3>Manter a socialização e a conexão com amigos e familiares
+          <button aria-label="Ler título Manter a socialização e a conexão com amigos e familiares" class="audio-btn" data-text="Manter a socialização e a conexão com amigos e familiares" type="button" title="Ouvir título">🔊</button>
+        </h3>
+        <p>
+          Faça contato regular com amigos e familiares, participe de atividades sociais e aprenda a usar tecnologias.
+          <button aria-label="Ler texto Faça contato regular com amigos e familiares, participe de atividades sociais e aprenda a usar tecnologias." class="audio-btn" data-text="Faça contato regular com amigos e familiares, participe de atividades sociais e aprenda a usar tecnologias." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <ul>
+          <li>Faça contato regular com amigos e familiares.
+            <button aria-label="Ler texto Faça contato regular com amigos e familiares." class="audio-btn" data-text="Faça contato regular com amigos e familiares." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Participe de atividades sociais e comunitárias.
+            <button aria-label="Ler texto Participe de atividades sociais e comunitárias." class="audio-btn" data-text="Participe de atividades sociais e comunitárias." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Aprenda a usar tecnologias de comunicação.
+            <button aria-label="Ler texto Aprenda a usar tecnologias de comunicação." class="audio-btn" data-text="Aprenda a usar tecnologias de comunicação." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Busque apoio de profissionais de saúde ou grupos de apoio.
+            <button aria-label="Ler texto Busque apoio de profissionais de saúde ou grupos de apoio." class="audio-btn" data-text="Busque apoio de profissionais de saúde ou grupos de apoio." type="button" title="Ouvir texto">🔊</button>
+          </li>
+        </ul>
+        <h3>Encontrar grupos de apoio e comunidades para idosos
+          <button aria-label="Ler título Encontrar grupos de apoio e comunidades para idosos" class="audio-btn" data-text="Encontrar grupos de apoio e comunidades para idosos" type="button" title="Ouvir título">🔊</button>
+        </h3>
+        <p>
+          Encontre grupos de apoio e comunidades relevantes, participe de atividades e compartilhe experiências.
+          <button aria-label="Ler texto Encontre grupos de apoio e comunidades relevantes, participe de atividades e compartilhe experiências." class="audio-btn" data-text="Encontre grupos de apoio e comunidades relevantes, participe de atividades e compartilhe experiências." type="button" title="Ouvir texto">🔊</button>
+        </p>
+        <ul>
+          <li>Encontre grupos de apoio e comunidades que sejam relevantes para você.
+            <button aria-label="Ler texto Encontre grupos de apoio e comunidades que sejam relevantes para você." class="audio-btn" data-text="Encontre grupos de apoio e comunidades que sejam relevantes para você." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Participe de atividades e discussões.
+            <button aria-label="Ler texto Participe de atividades e discussões." class="audio-btn" data-text="Participe de atividades e discussões." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Aprenda com outros idosos e compartilhe suas experiências.
+            <button aria-label="Ler texto Aprenda com outros idosos e compartilhe suas experiências." class="audio-btn" data-text="Aprenda com outros idosos e compartilhe suas experiências." type="button" title="Ouvir texto">🔊</button>
+          </li>
+          <li>Busque apoio de profissionais de saúde ou especialistas em gerontologia.
+            <button aria-label="Ler texto Busque apoio de profissionais de saúde ou especialistas em gerontologia." class="audio-btn" data-text="Busque apoio de profissionais de saúde ou especialistas em gerontologia." type="button" title="Ouvir texto">🔊</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <section id="feedback-section" aria-label="Seção de feedback" style="max-width: 600px; margin: 2rem auto; padding: 1rem; border: 2px solid #2e7d32; border-radius: 12px; background-color: #f9f9f9;">
+    <h2 style="color: #2e7d32; margin-bottom: 1rem; display: flex; justify-content: center; align-items: center; gap: 0.3rem;">
+      Deixe sua avaliação
+      <button aria-label="Ler título Deixe sua avaliação" class="audio-btn" data-text="Deixe sua avaliação" type="button" title="Ouvir título" style="background: transparent; border: none; padding: 0; font-size: 1.8rem; line-height: 1; cursor: pointer; color: #2e7d32; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); vertical-align: middle;">
+        🔊
+      </button>
+    </h2>
+    <div id="star-rating" role="radiogroup" aria-label="Avaliação por estrelas" style="display: flex; justify-content: center; gap: 0.5rem; font-size: 2.5rem; cursor: pointer;">
+      <span class="star" role="radio" aria-checked="false" tabindex="0" aria-label="1 estrela">&#9734;</span>
+      <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="2 estrelas">&#9734;</span>
+      <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="3 estrelas">&#9734;</span>
+      <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="4 estrelas">&#9734;</span>
+      <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="5 estrelas">&#9734;</span>
+    </div>
+    <textarea id="feedback-text" placeholder="Escreva sua avaliação aqui..." rows="4" style="width: 100%; margin-top: 1rem; padding: 0.5rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; resize: vertical; box-sizing: border-box; overflow-y: auto;"></textarea>
+    <button id="submit-feedback" style="margin-top: 1rem; background-color: #2e7d32; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 1.1rem; cursor: pointer; display: block; width: 100%;">Enviar Avaliação</button>
+    <p id="feedback-message" style="text-align: center; margin-top: 1rem; color: #2e7d32; font-weight: bold;"></p>
+  </section>
+  <style>
+    #star-rating .star {
+      cursor: pointer;
+      user-select: none;
+      font-size: 2.5rem;
+      color: #ffd700;
+      line-height: 1;
+      user-select: none;
+    }
+  </style>
+  <script src="shared-feedback.js"></script>
+  <script>
+    // Speech synthesis for audio buttons
+    document.addEventListener('DOMContentLoaded', () => {
+      const audioButtons = document.querySelectorAll('.audio-btn');
+      audioButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const text = button.getAttribute('data-text');
+          if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'pt-BR';
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utterance);
+          } else {
+            alert('Seu navegador não suporta síntese de voz.');
+          }
+        });
+      });
+    });
+  </script>
+  <a href="index.html" aria-label="Voltar para a página inicial" class="home-icon" title="Página Inicial">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Ícone Página Inicial" />
+  </a>
+  <div class="feedback-box" aria-live="polite" role="region" style="position: fixed; bottom: 20px; left: 20px; background: rgba(0, 0, 0, 0.7); color: white; padding: 12px 20px; border-radius: 8px; font-size: 1rem; max-width: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; user-select: none; display: flex; align-items: center; gap: 8px;">
+    <span>🔊</span>
+    <span>Clique no ícone de áudio para ouvir a informação ou título.</span>
+  </div>
+  <script>
+    setTimeout(() => {
+      const feedbackBox = document.querySelector('.feedback-box');
+      if (feedbackBox) {
+        feedbackBox.style.display = 'none';
+      }
+    }, 4000);
+  </script>
+</body>
+</html>

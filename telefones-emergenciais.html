@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telefones Emergenciais</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dubai:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Dubai', Arial, sans-serif;
+      background-image:
+        linear-gradient(rgba(211, 211, 211, 0.7), rgba(211, 211, 211, 0.7)),
+        url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1280&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: black;
+      min-height: 100vh;
+      padding-bottom: 2rem;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #4a4a4a, #2e2e2e);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .header h1 {
+      font-size: 4.14rem;
+      font-weight: 700;
+      padding: 18px 36px 18px 54px;
+      display: inline-block;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #a9a9a9, #d3d3d3);
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+      position: relative;
+      user-select: none;
+      margin-top: 0;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .header h1 .audio-btn {
+      margin-left: 12px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #333;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+      vertical-align: middle;
+    }
+    .emergency-icon {
+      width: 50px;
+      height: 50px;
+      user-select: none;
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      right: 1%;
+      transform: translateY(-50%) translateX(0);
+      animation: float 4s ease-in-out infinite;
+      fill: white;
+      z-index: 10;
+      transition: transform 0.3s ease-in-out;
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(-50%) translateX(0);
+      }
+      50% {
+        transform: translateY(-60%) translateX(10px);
+      }
+    }
+    .content {
+      font-weight: 600;
+      font-size: 1.472rem;
+      line-height: 1.8;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 0;
+      background: transparent;
+    }
+    .box {
+      background-color: #a9a9a9;
+      padding: 27.6px;
+      border-radius: 12px;
+      width: 699.2px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      color: white;
+      font-weight: 600;
+      font-size: 1.472rem;
+      margin-bottom: 2rem;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .box h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: white;
+      user-select: none;
+      text-align: center;
+    }
+    .box p {
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    .audio-btn {
+      margin-left: 6px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #333;
+      vertical-align: middle;
+      box-shadow: none;
+      padding: 0;
+    }
+  </style>
+  <style>
+    .home-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 1001;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.7));
+      transition: transform 0.2s ease-in-out;
+    }
+    .home-icon:hover {
+      transform: scale(1.1);
+    }
+  </style>
+  <style>
+    #star-rating .star {
+      cursor: pointer;
+      user-select: none;
+      font-size: 2.5rem;
+      color: #ffd700;
+      line-height: 1;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>
+        TELEFONES EMERGENCIAIS
+        <button aria-label="Ler título Telefones Emergenciais" class="audio-btn" data-text="TELEFONES EMERGENCIAIS" type="button" title="Ouvir título">🔊</button>
+      </h1>
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/phone.png" alt="Ícone Telefones Emergenciais" class="emergency-icon" />
+    </div>
+    <div class="content">
+<a href="tel:192" class="box" tabindex="0" role="link" style="text-decoration: none; color: inherit;">
+        <h2>Ambulância - SAMU
+          <button aria-label="Ler título Ambulância - SAMU" class="audio-btn" data-text="Ambulância - SAMU" type="button" title="Ouvir título">🔊</button>
+        </h2>
+        <p>Número: 192
+          <button aria-label="Ler texto Número 192" class="audio-btn" data-text="Número 192" type="button" title="Ouvir texto">🔊</button>
+        </p>
+      </a>
+<a href="tel:193" class="box" tabindex="0" role="link" style="text-decoration: none; color: inherit;">
+        <h2>Bombeiros
+          <button aria-label="Ler título Bombeiros" class="audio-btn" data-text="Bombeiros" type="button" title="Ouvir título">🔊</button>
+        </h2>
+        <p>Número: 193
+          <button aria-label="Ler texto Número 193" class="audio-btn" data-text="Número 193" type="button" title="Ouvir texto">🔊</button>
+        </p>
+      </a>
+<a href="tel:190" class="box" tabindex="0" role="link" style="text-decoration: none; color: inherit;">
+        <h2>Polícia Militar
+          <button aria-label="Ler título Polícia Militar" class="audio-btn" data-text="Polícia Militar" type="button" title="Ouvir título">🔊</button>
+        </h2>
+        <p>Número: 190
+          <button aria-label="Ler texto Número 190" class="audio-btn" data-text="Número 190" type="button" title="Ouvir texto">🔊</button>
+        </p>
+      </a>
+<a href="tel:199" class="box" tabindex="0" role="link" style="text-decoration: none; color: inherit;">
+        <h2>Defesa Civil
+          <button aria-label="Ler título Defesa Civil" class="audio-btn" data-text="Defesa Civil" type="button" title="Ouvir título">🔊</button>
+        </h2>
+        <p>Número: 199
+          <button aria-label="Ler texto Número 199" class="audio-btn" data-text="Número 199" type="button" title="Ouvir texto">🔊</button>
+        </p>
+      </a>
+<a href="tel:180" class="box" tabindex="0" role="link" style="text-decoration: none; color: inherit;">
+        <h2>Disque Violência
+          <button aria-label="Ler título Disque Violência" class="audio-btn" data-text="Disque Violência" type="button" title="Ouvir título">🔊</button>
+        </h2>
+        <p>Número: 180
+          <button aria-label="Ler texto Número 180" class="audio-btn" data-text="Número 180" type="button" title="Ouvir texto">🔊</button>
+        </p>
+      </a>
+<a href="tel:136" class="box" tabindex="0" role="link" style="text-decoration: none; color: inherit;">
+        <h2>Ouvidoria SUS
+          <button aria-label="Ler título Ouvidoria SUS" class="audio-btn" data-text="Ouvidoria SUS" type="button" title="Ouvir título">🔊</button>
+        </h2>
+        <p>Número: 136
+          <button aria-label="Ler texto Número 136" class="audio-btn" data-text="Número 136" type="button" title="Ouvir texto">🔊</button>
+        </p>
+      </a>
+    </div>
+  </div>
+  <section id="feedback-section" aria-label="Seção de feedback" style="max-width: 600px; margin: 2rem auto; padding: 1rem; border: 2px solid #4a4a4a; border-radius: 12px; background-color: #d3d3d3;">
+    <h2 style="color: #4a4a4a; margin-bottom: 1rem; display: flex; justify-content: center; align-items: center; gap: 0.3rem;">
+      Deixe sua avaliação
+      <button aria-label="Ler título Deixe sua avaliação" class="audio-btn" data-text="Deixe sua avaliação" type="button" title="Ouvir título" style="background: transparent; border: none; padding: 0; font-size: 1.8rem; line-height: 1; cursor: pointer; color: #4a4a4a; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); vertical-align: middle;">
+        🔊
+      </button>
+    </h2>
+    <div id="star-rating" role="radiogroup" aria-label="Avaliação por estrelas" style="display: flex; justify-content: center; gap: 0.5rem; font-size: 2.5rem; cursor: pointer;">
+      <span class="star" role="radio" aria-checked="false" tabindex="0" aria-label="1 estrela">&#9734;</span>
+      <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="2 estrelas">&#9734;</span>
+      <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="3 estrelas">&#9734;</span>
+      <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="4 estrelas">&#9734;</span>
+      <span class="star" role="radio" aria-checked="false" tabindex="-1" aria-label="5 estrelas">&#9734;</span>
+    </div>
+    <textarea id="feedback-text" placeholder="Escreva sua avaliação aqui..." rows="4" style="width: 100%; margin-top: 1rem; padding: 0.5rem; font-size: 1rem; border-radius: 8px; border: 1px solid #a5a5a5; resize: vertical; box-sizing: border-box; overflow-y: auto; background-color: #d3d3d3; color: #808080;"></textarea>
+    <button id="submit-feedback" style="margin-top: 1rem; background-color: #4a4a4a; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 1.1rem; cursor: pointer; display: block; width: 100%;">Enviar Avaliação</button>
+    <p id="feedback-message" style="text-align: center; margin-top: 1rem; color: #808080; font-weight: bold;"></p>
+  </section>
+  <script src="shared-feedback.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const audioButtons = document.querySelectorAll('.audio-btn');
+      audioButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+          event.stopPropagation();
+          event.preventDefault();
+          const text = button.getAttribute('data-text');
+          if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'pt-BR';
+            window.speechSynthesis.cancel(); // Cancel any ongoing speech
+            window.speechSynthesis.speak(utterance);
+          } else {
+            alert('Seu navegador não suporta síntese de voz.');
+          }
+        });
+      });
+    });
+  </script>
+  <div class="feedback-box" aria-live="polite" role="region" style="position: fixed; bottom: 20px; left: 20px; background: rgba(0, 0, 0, 0.7); color: white; padding: 12px 20px; border-radius: 8px; font-size: 1rem; max-width: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; user-select: none; display: flex; align-items: center; gap: 8px;">
+    <span>🔊</span>
+    <span>Clique no ícone de áudio para ouvir a informação ou título.</span>
+  </div>
+  <script>
+    setTimeout(() => {
+      const feedbackBox = document.querySelector('.feedback-box');
+      if (feedbackBox) {
+        feedbackBox.style.display = 'none';
+      }
+    }, 4000);
+  </script>
+  <a href="index.html" aria-label="Voltar para a página inicial" class="home-icon" title="Página Inicial">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Ícone Página Inicial" />
+  </a>
+  </body>
+  </html>
