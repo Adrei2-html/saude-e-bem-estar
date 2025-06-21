@@ -194,6 +194,40 @@
     }
   </style>
   <style>
+    .tooltip-container {
+      position: relative;
+      display: inline-block;
+    }
+    .tooltip-text {
+      visibility: hidden;
+      width: max-content;
+      max-width: 180px;
+      background: linear-gradient(145deg, #a3c6f9, #8bc78b);
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px 14px;
+      position: absolute;
+      right: 70px;
+      top: 50%;
+      transform: translateY(-50%) translateX(0);
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      white-space: normal;
+      font-size: 1rem;
+      font-weight: 600;
+      pointer-events: none;
+      z-index: 1000;
+      text-transform: uppercase;
+      box-shadow: inset 0 0 10px 2px rgba(0, 128, 128, 0.3);
+    }
+    .tooltip-container:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+  </style>
+  <style>
     /* Responsive styles for mobile devices */
     @media (max-width: 600px) {
       body {
@@ -289,6 +323,76 @@
       }
     }, 4000);
   </script>
+  <div class="side-buttons" aria-label="Navegação principal direita">
+    <div class="tooltip-container">
+      <button type="button" class="circle-btn" onclick="window.location.href='medicamentos.html'" aria-label="Medicamentos">
+        <img src="https://img.icons8.com/ios-filled/50/000000/pill.png" alt="Medicamentos Icon" />
+      </button>
+      <span class="tooltip-text">Medicamentos</span>
+    </div>
+    <div class="tooltip-container">
+      <button type="button" class="circle-btn" onclick="window.location.href='assistencia-domiciliar.html'" aria-label="Assistência Domiciliar">
+        <img src="https://img.icons8.com/ios-filled/50/000000/hospital-3.png" alt="Assistência Domiciliar Icon" />
+      </button>
+      <span class="tooltip-text">Assistência Domiciliar</span>
+    </div>
+    <div class="tooltip-container">
+      <button type="button" class="circle-btn" onclick="window.location.href='dicas-para-idoso.html'" aria-label="Dicas para o Idoso e Cuidador">
+        <img src="https://img.icons8.com/ios-filled/50/000000/hand-holding-heart.png" alt="Dicas para o Idoso e Cuidador Icon" />
+      </button>
+      <span class="tooltip-text">Dicas para o Idoso e Cuidador</span>
+    </div>
+    <div class="tooltip-container">
+      <button type="button" class="circle-btn" onclick="window.location.href='telefones-emergenciais.html'" aria-label="Telefone">
+        <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Telefone Icon" />
+      </button>
+      <span class="tooltip-text">Telefones Emergenciais</span>
+    </div>
+  </div>
+  <style>
+    .side-buttons {
+      position: fixed;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+      z-index: 10;
+    }
+    .circle-btn {
+      background-color: #d3d3d3;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      color: black;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 0;
+      user-select: none;
+    }
+    .circle-btn img {
+      width: 28px;
+      height: 28px;
+      margin: 0;
+      filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    }
+    .circle-btn:hover,
+    .circle-btn:focus {
+      background-color: #b0b0b0;
+      outline: none;
+      transform: scale(1.1);
+    }
+  </style>
   <a href="index.html" aria-label="Voltar para a página inicial" class="home-icon" title="Página Inicial">
     <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Ícone Página Inicial" />
   </a>
